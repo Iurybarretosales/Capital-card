@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPITAL CARD - Empréstimos Consignados</title>
+    <style>
+        /* Cores extraídas da logo */
+        :root {
+            --primary-color: #063447; /* Azul escuro */
+            --secondary-color: #068587; /* Azul esverdeado */
+            --accent-color: #EAC726; /* Amarelo */
+            --text-color: #ffffff; /* Branco */
+            --background-color: #f5f5f5; /* Cinza claro */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: var(--background-color);
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: var(--primary-color);
+            border-radius: 15px;
+            margin: 20px auto;
+            width: 80%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar:hover {
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 100px;
+            width: 150px;
+            border-radius: 15px;
+            margin-right: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        .menu a:hover {
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .whatsapp-btn {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://i.postimg.cc/JhS2L1tH/Whats-App-Image-2025-03-11-at-11-21-46.jpg" alt="Capital Card Logo">
+        </div>
+        <div class="menu">
+            <a href="https://capitalcardconsignado.com.br/">Home</a>
+            <a href="https://capitalcardconsignado.com.br/">Sobre nós</a>
+            <a href="https://api.whatsapp.com/send/?phone=554874000456&text=Oi+iury+tudo+bem%3F%2C+gostaria+mais+de+saber+sobre+a+proposta+para+liquidar+a+divida+do+consignado+que+nunca+acaba%2C+pode+me+ajudar%3F&type=phone_number&app_absent=0">Contato</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Bem-vindo à CAPITAL CARD</h1>
+        <p>Somos especialistas em crédito consignado para servidores públicos federais, oferecendo soluções financeiras personalizadas com transparência e segurança.</p>
+        
+        <h2>Nossos Diferenciais</h2>
+        <p>✔ Especialização em servidores públicos federais</p>
+        <p>✔ Taxas competitivas</p>
+        <p>✔ Atendimento personalizado</p>
+        <p>✔ Processo rápido e seguro</p>
+        
+        <h2>Entre em Contato</h2>
+        <a href="https://capitalcardconsignado.com.br/" class="btn">Visitar Website</a>
+        <a href="https://api.whatsapp.com/send/?phone=554874000456&text=Oi+iury+tudo+bem%3F%2C+gostaria+mais+de+saber+sobre+a+proposta+para+liquidar+a+divida+do+consignado+que+nunca+acaba%2C+pode+me+ajudar%3F&type=phone_number&app_absent=0" class="btn">WhatsApp</a>
+    </div>
+</body>
+</html>
