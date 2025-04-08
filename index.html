@@ -1,213 +1,46 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAPITAL CARD - Empréstimos Consignados</title>
-    <style>
-        :root {
-            --primary-color: #4A5F51;
-            --text-color: white;
-            --background-color: #f5f5f5;
-            --menu-bg-color: white;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #0A3345;
-            padding: 15px 20px;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease-in-out;
-        }
-
-        .logo img {
-            height: 50px;
-            border-radius: 10px;
-            background: white;
-            padding: 5px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .logo img:hover {
-            transform: scale(1.1);
-        }
-
-        .menu-container {
-            display: flex;
-            gap: 20px;
-        }
-
-        .menu-container a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: color 0.3s ease-in-out;
-        }
-
-        .menu-container a:hover {
-            color: #a0c4ff;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 10px;
-            background: none;
-            border: none;
-        }
-
-        .hamburger div {
-            width: 30px;
-            height: 4px;
-            background-color: white;
-            border-radius: 2px;
-        }
-
-        .menu-responsive {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 80px;
-            right: 20px;
-            background: var(--menu-bg-color);
-            width: 250px;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .menu-responsive a {
-            display: block;
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-            padding: 10px;
-            text-align: center;
-            transition: color 0.3s ease-in-out;
-        }
-
-        .menu-responsive a:hover {
-            color: var(--primary-color);
-        }
-
-        @media (max-width: 768px) {
-            .menu-container {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .menu-responsive.active {
-                display: flex;
-            }
-        }
-
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.8s forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 24px;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-        }
-
-        .btn:hover {
-            background-color: black;
-            transform: scale(1.05);
-        }
-    </style>
+  <title>Power BI - Troca Automática</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background-color: #000;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
 </head>
 <body>
+  <iframe id="powerbi-frame" src="" allowfullscreen></iframe>
 
-    <nav class="navbar">
-        <div class="logo">
-            <img src="https://i.postimg.cc/JhS2L1tH/Whats-App-Image-2025-03-11-at-11-21-46.jpg" alt="Capital Card Logo">
-        </div>
-        <div class="menu-container">
-            <a href="#">Home</a>
-            <a href="#">Sobre nós</a>
-            <a href="#">Contato</a>
-        </div>
-        <button class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </button>
-    </nav>
+  <script>
+    const baseUrl = "https://app.powerbi.com/view?r=eyJrIjoiNjhlOWEwZDItMmY3YS00ODIyLWE3ZjAtNjE1ZGJkZTMxNjU4IiwidCI6IjJiZWVmY2U2LTJhNGQtNGMyYS1hNjhkLTBhMzY4MTNiNjI0YiJ9";
 
-    <div class="menu-responsive" id="menu-responsive">
-        <a href="#">Home</a>
-        <a href="#">Sobre nós</a>
-        <a href="#">Contato</a>
-    </div>
+    // Nomes fictícios das páginas (você pode ajustar se tiver os reais)
+    const pages = [
+      "5a534bcbf8830913d753", // Página 1
+      "36f505b058e6e6db0d74", // Página 2
+      "a444e84da091eaec5288", // Página 3
+      "8402c1b4ac5e057d086b", // Página 4
+      "cff363291d8bebc3b05a"                     // Página 5
+    ];
 
-    <div class="container">
-        <h1>Bem-vindo à CAPITAL CARD</h1>
-        <p>Somos especialistas em crédito consignado para servidores públicos federais, oferecendo soluções financeiras personalizadas com transparência e segurança.</p>
-        <h2>Nossos Diferenciais</h2>
-        <p>✔ Especialização em servidores públicos federais</p>
-        <p>✔ Taxas competitivas</p>
-        <p>✔ Atendimento personalizado</p>
-        <p>✔ Processo rápido e seguro</p>
-        <h2>Entre em Contato</h2>
-        <a href="https://capitalcardconsignado.com.br/" class="btn">Visitar Website</a>
-        <a href="https://api.whatsapp.com/send/?phone=554874000456&text=Oi+iury+tudo+bem%3F%2C+gostaria+mais+de+saber+sobre+a+proposta+para+liquidar+a+divida+do+consignado+que+nunca+acaba%2C+pode+me+ajudar%3F&type=phone_number&app_absent=0" class="btn">WhatsApp</a>
-    </div>
+    let currentPage = 0;
 
-    <script>
-        function toggleMenu() {
-            document.getElementById('menu-responsive').classList.toggle('active');
-        }
-    </script>
+    function loadPage() {
+      const page = pages[currentPage];
+      document.getElementById("powerbi-frame").src = `${baseUrl}&pageName=${page}`;
+      currentPage = (currentPage + 1) % pages.length;
+    }
+
+    loadPage();
+    setInterval(loadPage, 25000); // troca a cada 10 segundos
+  </script>
 </body>
 </html>
